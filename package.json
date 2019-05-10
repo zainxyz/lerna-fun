@@ -1,0 +1,39 @@
+{
+    "name": "lerna-fun",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Having fun with lerna.json",
+    "homepage": "https://github.com/zainxyz/lerna-fun#readme",
+    "bugs": {
+        "url": "https://github.com/zainxyz/lerna-fun/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zainxyz/lerna-fun.git"
+    },
+    "license": "MIT",
+    "author": "Zain Abidi",
+    "main": "index.js",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "bootstrap": "lerna bootstrap --use-workspaces",
+        "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.spec.js",
+        "start": "yarn --cwd ./packages/app start",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "babel-core": "7.0.0-bridge.0",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-styled-components": "^1.10.0",
+        "lerna": "^3.13.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "styled-components": "^4.2.0"
+    }
+}
