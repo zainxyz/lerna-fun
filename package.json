@@ -1,8 +1,8 @@
 {
-    "name": "lerna-fun",
+    "name": "@fun/workspace",
     "version": "1.0.0",
     "private": true,
-    "description": "Having fun with lerna.json",
+    "description": "@fun's worspace package",
     "homepage": "https://github.com/zainxyz/lerna-fun#readme",
     "bugs": {
         "url": "https://github.com/zainxyz/lerna-fun/issues"
@@ -13,27 +13,79 @@
     },
     "license": "MIT",
     "author": "Zain Abidi",
+    "files": [
+        "packages/**/lib/**"
+    ],
+    "sideEffects": false,
     "main": "index.js",
     "workspaces": [
         "packages/*"
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap --use-workspaces",
-        "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.spec.js",
+        "prebuild": "rm -rf packages/**/lib",
+        "build": "lerna exec --parallel -- yarn build",
+        "build:old": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.spec.js",
+        "clean": "lerna clean",
+        "go": "lerna exec --parallel -- yarn pack",
         "start": "yarn --cwd ./packages/app start",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
         "@babel/core": "^7.4.4",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.4.4",
+        "@babel/plugin-proposal-decorators": "^7.4.4",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-destructuring": "^7.4.4",
+        "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+        "@babel/plugin-transform-runtime": "^7.4.4",
         "@babel/preset-env": "^7.4.4",
         "@babel/preset-react": "^7.0.0",
+        "@babel/register": "^7.4.4",
         "babel-core": "7.0.0-bridge.0",
+        "babel-eslint": "^10.0.1",
+        "babel-jest": "^24.8.0",
         "babel-loader": "^8.0.5",
+        "babel-plugin-dynamic-import-node": "^2.2.0",
+        "babel-plugin-import": "^1.11.0",
+        "babel-plugin-module-resolver": "^3.2.0",
+        "babel-plugin-named-asset-import": "^0.3.2",
+        "babel-plugin-react-docgen": "^3.1.0",
+        "babel-plugin-replace-imports": "^1.0.2",
         "babel-plugin-styled-components": "^1.10.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "babel-preset-react-app": "^9.0.0",
+        "cross-env": "^5.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-react-app": "^4.0.1",
+        "eslint-import-resolver-node": "^0.3.2",
+        "eslint-loader": "^2.1.2",
+        "eslint-plugin-babel": "^5.3.0",
+        "eslint-plugin-flowtype": "^3.8.1",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-jest": "^22.5.1",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.13.0",
+        "eslint-plugin-react-hooks": "^1.6.0",
+        "jest": "^24.8.0",
+        "jest-resolve": "^24.8.0",
         "lerna": "^3.13.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "styled-components": "^4.2.0"
+    },
+    "peerDependencies": {
+        "react": "*",
+        "react-dom": "*"
+    },
+    "engines": {
+        "node": ">=8.0.0"
+    },
+    "publishConfig": {
+        "access": "restricted"
     }
 }

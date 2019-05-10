@@ -2,30 +2,30 @@
     "name": "@fun/app",
     "version": "1.0.0",
     "description": "The APPPP",
-    "author": "Zain Abidi <hello@zainabidi.com>",
     "homepage": "https://github.com/zainxyz/lerna-fun/tree/master/packages/app#readme",
-    "license": "MIT",
-    "main": "lib/app.js",
-    "directories": {
-        "lib": "lib",
-        "test": "__tests__"
+    "bugs": {
+        "url": "https://github.com/zainxyz/lerna-fun/issues"
     },
-    "files": [
-        "lib"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/zainxyz/lerna-fun.git"
     },
-    "scripts": {
-        "start": "node ./lib/app.js",
-        "test": "echo \"Error: run tests from root\" && exit 1"
+    "license": "MIT",
+    "author": "Zain Abidi <hello@zainabidi.com>",
+    "files": [
+        "lib"
+    ],
+    "sideEffects": false,
+    "main": "lib/app.js",
+    "directories": {
+        "lib": "lib"
     },
-    "bugs": {
-        "url": "https://github.com/zainxyz/lerna-fun/issues"
+    "scripts": {
+        "build": "cross-env BABEL_ENV=esm babel --config-file ../../babel.config.js ./src --out-dir ./lib",
+        "start": "node ./lib/app.js"
     },
     "dependencies": {
-        "@fun/components": "^1.0.0",
-        "@fun/core": "^1.0.0"
+        "@fun/components": "*",
+        "@fun/core": "*"
     }
 }

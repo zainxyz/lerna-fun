@@ -2,28 +2,31 @@
     "name": "@fun/components",
     "version": "1.0.0",
     "description": "The components!",
-    "author": "Zain Abidi <hello@zainabidi.com>",
     "homepage": "https://github.com/zainxyz/lerna-fun/tree/master/packages/components#readme",
-    "license": "MIT",
-    "main": "lib/components.js",
-    "directories": {
-        "lib": "lib",
-        "test": "__tests__"
+    "bugs": {
+        "url": "https://github.com/zainxyz/lerna-fun/issues"
     },
-    "files": [
-        "lib"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/zainxyz/lerna-fun.git"
     },
-    "scripts": {
-        "test": "echo \"Error: run tests from root\" && exit 1"
+    "license": "MIT",
+    "author": "Zain Abidi <hello@zainabidi.com>",
+    "files": [
+        "lib"
+    ],
+    "sideEffects": false,
+    "main": "lib/components.js",
+    "module": "lib/esm/components.js",
+    "directories": {
+        "lib": "lib"
     },
-    "bugs": {
-        "url": "https://github.com/zainxyz/lerna-fun/issues"
+    "scripts": {
+        "build": "yarn build:cjs && yarn build:esm",
+        "build:cjs": "cross-env BABEL_ENV=cjs babel --config-file ../../babel.config.js ./src --out-dir ./lib",
+        "build:esm": "cross-env BABEL_ENV=esm babel --config-file ../../babel.config.js ./src --out-dir ./lib/esm"
     },
     "dependencies": {
-        "@fun/core": "^1.0.0"
+        "@fun/core": "*"
     }
 }
