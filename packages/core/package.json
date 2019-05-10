@@ -22,6 +22,5 @@
     },
     "bugs": {
         "url": "https://github.com/zainxyz/lerna-fun/issues"
-    },
-    "dependencies": {}
+    }
 }
