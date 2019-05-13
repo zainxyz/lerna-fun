@@ -22,10 +22,10 @@
     },
     "scripts": {
         "build": "cross-env BABEL_ENV=esm babel --config-file ../../babel.config.js ./src --out-dir ./lib",
-        "start": "node ./lib/app.js"
+        "start": "node ./src/app.js"
     },
     "dependencies": {
-        "@fun/components": "*",
-        "@fun/core": "*"
+        "@fun/components": "^1.0.0",
+        "@fun/core": "^1.0.0"
     }
 }

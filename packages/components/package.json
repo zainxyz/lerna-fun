@@ -27,6 +27,6 @@
         "build:esm": "cross-env BABEL_ENV=esm babel --config-file ../../babel.config.js ./src --out-dir ./lib/esm"
     },
     "dependencies": {
-        "@fun/core": "*"
+        "@fun/core": "^1.0.0"
     }
 }
